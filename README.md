@@ -5,6 +5,16 @@
 测试地址
 https://ggt333.zeabur.app/user.html
 
+这个错误是 redirect_uri_mismatch，意思是 Google OAuth 的回调地址不匹配。 原因：你需要在 Google Cloud Console 中添加正确的重定向 URI。 解决方法：
+打开 Google Cloud Console
+进入 APIs & Services → Credentials
+找到你的 OAuth 2.0 Client ID，点击编辑
+在 Authorized redirect URIs 中添加你的回调地址：
+如果是本地开发：http://localhost:端口/admin/oauth-callback
+如果是生产环境：https://你的域名/admin/oauth-callback
+查看当前使用的 redirect_uri： 你可以看一下浏览器地址栏中 Google 授权页面的 URL，找到 redirect_uri= 参数，把那个值添加到 Google Cloud Console 中。
+
+
 ## ✨ 核心功能
 
 ### API 代理
